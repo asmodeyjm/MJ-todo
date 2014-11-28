@@ -5,3 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'faker'
+ 
+ # Create Topics
+ 50.times do
+   Topic.create!(
+     title:  Faker::Lorem.sentence,
+     body:   Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
+ 
+ # Create Posts
+ 100.times do
+   Post.create!(
+     topic: topics.sample,
+     body: Faker::Lorem.paragraph
+   )
+ end
+ 
+ puts "Seed finished"
+ puts "#{Topic.count} topics created"
+ puts "#{Post.count} posts created"
