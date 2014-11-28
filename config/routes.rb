@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  devise_for :users
   get 'todo_items/index'
 
   resources :todo_lists do 
