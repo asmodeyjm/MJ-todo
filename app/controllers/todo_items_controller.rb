@@ -1,4 +1,5 @@
 class TodoItemsController < ApplicationController
+  before_action :authenticate_user
   def index
     @todo_list = TodoList.find(params[:todo_list_id])
   end
